@@ -1,0 +1,111 @@
+{% extends 'about.html'%}
+{%block head%}
+{%load static%}
+    <link rel="stylesheet" href="{% static 'pro.css'%}">
+    
+    {% endblock head%}
+{%block title%} Profile {% endblock title %}
+{%block body%}
+{% if user.is_authenticated %}
+{% if user1 %}
+{% for i in user1 %}
+<div class="container">
+
+  <div class="form-box">
+      <h1> GEO VIRTUAL TOUR</h1>
+      <p><a href="/login">LOGOUT</a></p>
+   <h2> PROFILE</h2>
+   <form method="post" action="profile">
+    {% csrf_token %}
+   <div class="input-group">
+      <div class="input-field">
+          <input type="name" required name="name" value={{user.username}} readonly placeholder="NAME">
+        </div>
+
+    <div class="input-field">
+
+      <input type="email" name="email" required placeholder="EMAIL" value={{user.email}} readonly > 
+    </div>
+    <div class="input-field">
+      <input type="number" maxlength="10"required name="number" value={{i.number}} placeholder="MOBILE NUMBER">
+    </div>
+    <div class="input-field ">
+      <select name="gender"  class="input-field " style="height: 25px;
+      border: none;
+      width: 392px;
+      text-align: center;" aria-placeholder="GENDER">
+          
+          <option class="dropdown-item" value="" >{{i.gender}}</option>
+          
+          <option class="dropdown-item" value="Male">Male</option>
+          <option class="dropdown-item" value="Female"> Female</option>
+          <option class="dropdown-item" value="Other">Other</option>
+  
+      </select>
+    </div>
+  
+    <div class="input-field">
+      <input type="text" name="qualification"  required placeholder="QUALIFICATION" value="{{i.qualification}}">
+    </div>
+   </div>
+  <div class="but-field">
+      <button type="submit"> SAVE PROFILE </button>
+  </div>
+ 
+  </form>
+</div>
+</div>
+{% endfor %}
+{% else %}
+<div class="container">
+
+  <div class="form-box">
+      <h1> GEO VIRTUAL TOUR</h1>
+      <p><a href="/login">LOGOUT</a></p>
+   <h2> PROFILE</h2>
+   <form method="post" action="profile">
+    {% csrf_token %}
+   <div class="input-group">
+      <div class="input-field">
+          <input type="name" required name="name" value={{user.username}} readonly placeholder="NAME">
+        </div>
+
+    <div class="input-field">
+
+      <input type="email" name="email" required placeholder="EMAIL" value={{user.email}} readonly > 
+    </div>
+    <div class="input-field">
+      <input type="number" maxlength="10"required name="number" placeholder="MOBILE NUMBER">
+    </div>
+    <div class="input-field ">
+      <select name="gender"  class="input-field " style="height: 25px;
+      border: none;
+      width: 392px;
+      text-align: center;" aria-placeholder="GENDER">
+          
+          
+          
+          <option class="dropdown-item" value="Male">Male</option>
+          <option class="dropdown-item" value="Female"> Female</option>
+          <option class="dropdown-item" value="Other">Other</option>
+  
+      </select>
+    </div>
+   
+    <div class="input-field">
+      <input type="text" name="qualification"  required placeholder="QUALIFICATION" ">
+    </div>
+   </div>
+  <div class="but-field">
+      <button type="submit"> SAVE PROFILE </button>
+  </div>
+ 
+  </form>
+</div>
+</div>
+{% endif %}
+
+{% endif %}
+    </div>
+</div>
+{% endblock body %} 

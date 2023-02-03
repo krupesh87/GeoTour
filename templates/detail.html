@@ -1,0 +1,69 @@
+{% extends 'base.html'%}
+{%block title%} Details {% endblock title %}
+{%block body%} 
+<div class="form-box" > 
+
+<form>
+ {% for i in result %}
+ <table>
+    <tr >
+        <td id="abc">
+            COLLEGE NAME:
+        </td>
+        <td id="abc">
+            <input type="text"   class="form-control" value={{i.collegename}} size="50">
+        </td>
+    </tr>
+    <tr>
+        <td id="abc">
+            ESTABLISHED IN:
+        </td>
+        <td id="abc">
+            <input type="text"  class="form-control"  value={{i.establishin}}  >
+        </td>
+    </tr>
+    <tr>
+        <td id="abc">
+            ADDRESS:
+        </td>
+        <td id="abc">
+            <input class="form-control" type="text" value={{i.address}}  size="50" >
+            
+        </td>
+    </tr>
+    <tr>
+        <td id="abc">
+            BRANCHES:
+        </td>
+        <td id="abc">
+            <input  class="form-control" type="text" value={{i.branch}}  >
+        </td>
+    </tr>
+    <tr>
+        <td id="abc">
+            INFORMATION:
+        </td>
+        <td id="abc">
+            <input  class="form-control" type="text"  value={{i.information}} size="50" >
+        </td>
+    </tr>
+    <tr>
+        <td id="abc">
+            OTHER FACILITIES:
+        </td>
+        <td id="abc">
+            <input   class="form-control" value={{i.otherfaculty}}>        </td>
+    </tr>
+    
+</table>
+ {% endfor %}
+</form>
+
+<div class="but-field">
+  <a href="/service" class="btn btn-lg">
+
+      <button type="button" > BACK </button>
+  </a>
+</div>
+</div>
+  {% endblock body %}
